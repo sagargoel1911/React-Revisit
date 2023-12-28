@@ -6,10 +6,10 @@ function MainNavigation() {
   function clickHandler() {
     // auth.setUserName(prev=>{prev?null:"Sagar Goel"})
     if(auth.userName){
-        auth.setUserName(null);
+        auth.logout();
     }
     else{
-        auth.setUserName("Sagar Goel");
+        auth.login("Sagar Goel");
     }
   }
   const auth = useContext(AuthContext);

@@ -1,14 +1,14 @@
 import { AuthContext } from "./context/AuthContext";
 
 import "./App.css";
-import { useState } from "react";
 import { Route, Navigate, Routes } from "react-router-dom";
 import Status from "./components/Status";
 import PersonalInfo from "./components/PersonalInfo";
 import Intro from "./components/Intro";
 import MainNavigation from "./components/MainNavigation";
+import useAuth from "./hooks/auth-hook";
 function App() {
-  const [userName, setUserName] = useState(null);
+  const {userName,login,logout} = useAuth();
   let routes;
   if (userName) {
     routes = (
@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <AuthContext.Provider
-        value={{ userName, isLoggedIn: !!userName, setUserName }}
+        value={{ userName, isLoggedIn: !!userName, login:login,logout:logout }}
       >
         <MainNavigation />
         <main>{routes}</main>
