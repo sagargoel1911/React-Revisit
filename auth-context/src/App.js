@@ -13,18 +13,18 @@ function App() {
   if (userName) {
     routes = (
       <Routes>
-      <Route path="/" exxact Component={Intro}/>
+      <Route path="/" exact Component={Intro}/>
         <Route path="/status" exact Component={Status} />
         <Route path="/info" exact Component={PersonalInfo} />
-        <Route element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     );
   } else {
     routes = (
       <Routes>
-      <Route path="/" exxact Component={Intro}/>
+      <Route path="/" exact Component={Intro}/>
         <Route path="/status" exact Component={Status} />
-        <Route element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     );
   }

@@ -1,29 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 function MainNavigation() {
+  const [name, setName] = useState("");
   function clickHandler() {
-    // auth.setUserName(prev=>{prev?null:"Sagar Goel"})
-    if(auth.userName){
-        auth.logout();
-    }
-    else{
-        auth.login("Sagar Goel");
+    if (auth.userName) {
+      auth.logout();
+    } else {
+      auth.login(name);
     }
   }
   const auth = useContext(AuthContext);
   return (
     <ul>
       <li>
-        <NavLink to="/status"><button>Status</button></NavLink>
+        <NavLink to="/status">
+          <button>Status</button>
+        </NavLink>
       </li>
       {auth.isLoggedIn && (
         <li>
-          <NavLink to="/info"><button>Personal Info</button></NavLink>
+          <NavLink to="/info">
+            <button>Personal Info</button>
+          </NavLink>
         </li>
       )}
       <li>
+        {!auth.isLoggedIn && <input value={name} onChange={(event) => setName(event.target.value)} />}
         <NavLink to="/">
           <button onClick={clickHandler}>
             {auth.isLoggedIn ? "Logout" : "Login"}
@@ -31,7 +35,9 @@ function MainNavigation() {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/"><button>Home</button></NavLink>
+        <NavLink to="/">
+          <button>Home</button>
+        </NavLink>
       </li>
     </ul>
   );
