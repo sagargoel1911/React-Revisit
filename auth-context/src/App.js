@@ -7,6 +7,7 @@ import PersonalInfo from "./components/PersonalInfo";
 import Intro from "./components/Intro";
 import MainNavigation from "./components/MainNavigation";
 import useAuth from "./hooks/auth-hook";
+import InputApiCaller from "./components/InputApiCaller";
 function App() {
   const {userName,login,logout} = useAuth();
   let routes;
@@ -16,6 +17,7 @@ function App() {
       <Route path="/" exact Component={Intro}/>
         <Route path="/status" exact Component={Status} />
         <Route path="/info" exact Component={PersonalInfo} />
+        <Route path="/api-call" exact Component={InputApiCaller} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     );

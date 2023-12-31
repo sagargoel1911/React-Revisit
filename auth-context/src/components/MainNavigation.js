@@ -41,6 +41,13 @@ function MainNavigation() {
           </NavLink>
         </li>
       )}
+      {auth.isLoggedIn && (
+        <li>
+          <NavLink to="/api-call">
+            <button>Call API</button>
+          </NavLink>
+        </li>
+      )}
       <li>
         {!auth.isLoggedIn && <Input onInput={inputHandler} id="firstName"/>}
         {!auth.isLoggedIn && <Input onInput={inputHandler} id="lastName"/>}
