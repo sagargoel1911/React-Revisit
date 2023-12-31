@@ -38,9 +38,7 @@ function InputApiCaller() {
         <button type="submit">Submit</button>
         <br />
         {isLoading && <h1>Loading</h1>}
-        <br />
         {!isLoading && error && <h1>{error}</h1>}
-        <br />
         {!isLoading && !error && responseData && (
           <h1>{responseData.login}</h1>
         )}
