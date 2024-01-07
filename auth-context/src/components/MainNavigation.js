@@ -27,6 +27,7 @@ function MainNavigation() {
     }
   }
   const auth = useContext(AuthContext);
+  const url="/info/"+auth.userName;
   return (
     <ul>
       <li>
@@ -36,7 +37,7 @@ function MainNavigation() {
       </li>
       {auth.isLoggedIn && (
         <li>
-          <NavLink to="/info">
+          <NavLink to={url}>
             <button>Personal Info</button>
           </NavLink>
         </li>

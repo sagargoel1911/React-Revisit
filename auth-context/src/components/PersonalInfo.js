@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
-import { AuthContext } from '../context/AuthContext'
+import React from 'react'
+import { useParams } from 'react-router-dom';
 function PersonalInfo() {
-  const auth=useContext(AuthContext);
+  const {userName}=useParams()
   return (
-    <div>Name: {auth.userName}</div>
+    <div>Name: {userName}</div>
   )
 }
 

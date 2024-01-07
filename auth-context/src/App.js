@@ -16,7 +16,7 @@ function App() {
       <Routes>
       <Route path="/" exact Component={Intro}/>
         <Route path="/status" exact Component={Status} />
-        <Route path="/info" exact Component={PersonalInfo} />
+        <Route path="/info/:userName" exact Component={PersonalInfo} />
         <Route path="/api-call" exact Component={InputApiCaller} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
